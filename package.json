@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "start": "npm run dev & php artisan serve"
     },
     "devDependencies": {
         "@prettier/plugin-php": "0.14.3",
