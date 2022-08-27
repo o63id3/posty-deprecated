@@ -37,7 +37,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'body' => ['required'],
+            'body' => ['required', 'min:1'],
         ]);
 
         $request
