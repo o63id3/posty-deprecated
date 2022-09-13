@@ -85,29 +85,31 @@
         <!-- Like Comment Share -->
         <div class="grid grid-cols-1 divide-y mt-3 mb-2">
             <!-- Count -->
-            <div class="flex inline gap-3 justify-between p-2 text-sm">
-                <!-- Like -->
-                <div>
-                    @if ($post->likes->count())
-                        <button id="likes-btn" class="hover:underline" data-modal-toggle="{{ "likes-modal" . $post->id }}">
-                            {{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}
-                        </button>
-                    @endif
-                </div>
-                <div class="flex inline gap-3">
-                    <!-- Comment -->
-                    @if ($post->comments->count())    
-                        <button id="{{ "comment-btn-" . $post->id }}" type="button" class="hover:underline">
-                            {{ $post->comments->count() }} {{ Str::plural('Comment', $post->comments->count()) }}
-                        </button>
-                    @endif
+            @if ($post->likes->isNotEmpty() || $post->comments->isNotEmpty())
+                <div class="flex inline gap-3 justify-between p-2 text-sm">
+                    <!-- Like -->
+                    <div>
+                        @if ($post->likes->count())
+                            <button id="likes-btn" class="hover:underline" data-modal-toggle="{{ "likes-modal" . $post->id }}">
+                                {{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}
+                            </button>
+                        @endif
+                    </div>
+                    <div class="flex inline gap-3">
+                        <!-- Comment -->
+                        @if ($post->comments->count())    
+                            <button id="{{ "comment-btn-" . $post->id }}" type="button" class="hover:underline">
+                                {{ $post->comments->count() }} {{ Str::plural('Comment', $post->comments->count()) }}
+                            </button>
+                        @endif
 
-                    <!-- Share -->
-                    <button type="button" class="hover:underline">
-                        1 Share
-                    </button>
+                        <!-- Share -->
+                        <!-- <button type="button" class="hover:underline">
+                            1 Share
+                        </button> -->
+                    </div>
                 </div>
-            </div>
+            @endif
 
             <!-- Btn -->
             <div class="grid grid-cols-3 divide-x text-center">
