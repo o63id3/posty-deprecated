@@ -11,16 +11,16 @@
                 <!-- Username -->
                 <div class="mb-6">
                     <div class="flex">
-                        <span class="@session('status') border-red-500 @endsession inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                        <span class="@if (session('status')) border-red-500 @endif inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                           @
                         </span>
-                        <input type="text" name="username" class="@session('status') border-red-500 @endsession rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Username">
+                        <input type="text" name="username" class="@if (session('status')) border-red-500 @endif rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="Username">
                     </div>
                 </div>
 
                 <!-- Password -->
                 <div class="mb-6">
-                    <input type="password" name="password" class="@session('status') border-red-500 @endsession bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"  placeholder="Password" required="">
+                    <input type="password" name="password" class="@if (session('status')) border-red-500 @endif bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"  placeholder="Password" required="">
                 </div>
 
                 @if (session('status'))
